@@ -41,6 +41,11 @@ int luaopen_uci(lua_State *L);
 /*
  * ** Adapted from Lua 5.2.0
  * */
+
+#if !defined(luaL_newlibtable)
+/*
+ * already defined in luajit 2.1
+ */
 static void luaL_setfuncs (lua_State *L, const luaL_Reg *l, int nup) {
 	luaL_checkstack(L, nup+1, "too many upvalues");
 	for (; l->name != NULL; l++) {  /* fill the table with given functions */
@@ -53,6 +58,7 @@ static void luaL_setfuncs (lua_State *L, const luaL_Reg *l, int nup) {
 	}
 	lua_pop(L, nup);  /* remove upvalues */
 }
+#endif
 
 #define lua_rawlen(L, i) lua_objlen(L, i)
 
