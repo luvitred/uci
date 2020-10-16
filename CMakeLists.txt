@@ -20,7 +20,7 @@ OPTION(BUILD_STATIC "statically linking uci" OFF)
 
 FIND_PATH(ubox_include_dir libubox/usock.h)
 
-CONFIGURE_FILE( ${CMAKE_SOURCE_DIR}/uci_config.h.in ${CMAKE_SOURCE_DIR}/uci_config.h )
+CONFIGURE_FILE( ${CMAKE_CURRENT_SOURCE_DIR}/uci_config.h.in ${CMAKE_CURRENT_SOURCE_DIR}/uci_config.h )
 
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR} ${ubox_include_dir})
 
